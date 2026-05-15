@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Gym hero background",
+      "imageUrl": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=85",
+      "imageHint": "gym workout"
+    },
+    {
+      "id": "weight-training",
+      "description": "Weight training program",
+      "imageUrl": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80",
+      "imageHint": "weightlifting"
+    },
+    {
+      "id": "cardio-hiit",
+      "description": "Cardio HIIT program",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
+      "imageHint": "cardio fitness"
+    },
+    {
+      "id": "crossfit",
+      "description": "Crossfit program",
+      "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80",
+      "imageHint": "crossfit"
+    },
+    {
+      "id": "yoga",
+      "description": "Yoga mobility program",
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
+      "imageHint": "yoga"
+    },
+    {
+      "id": "mma",
+      "description": "MMA boxing program",
+      "imageUrl": "https://images.unsplash.com/photo-1549476464-37392f717541?w=600&q=80",
+      "imageHint": "boxing"
+    },
+    {
+      "id": "zumba",
+      "description": "Zumba dance program",
+      "imageUrl": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80",
+      "imageHint": "dance fitness"
+    },
+    {
+      "id": "trainer-vikram",
+      "description": "Coach Vikram",
+      "imageUrl": "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&q=80",
+      "imageHint": "personal trainer"
+    },
+    {
+      "id": "trainer-priya",
+      "description": "Coach Priya",
+      "imageUrl": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=80",
+      "imageHint": "fitness coach"
+    },
+    {
+      "id": "trainer-aryan",
+      "description": "Coach Aryan",
+      "imageUrl": "https://images.unsplash.com/photo-1549476464-37392f717541?w=500&q=80",
+      "imageHint": "boxing trainer"
+    },
+    {
+      "id": "trainer-sunita",
+      "description": "Coach Sunita",
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&q=80",
+      "imageHint": "yoga teacher"
+    },
+    {
+      "id": "trainer-rohan",
+      "description": "Coach Rohan",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80",
+      "imageHint": "dance teacher"
+    },
+    {
+      "id": "trainer-neha",
+      "description": "Coach Neha",
+      "imageUrl": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80",
+      "imageHint": "female trainer"
+    }
+  ]
 }
