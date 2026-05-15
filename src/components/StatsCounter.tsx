@@ -36,7 +36,7 @@ export default function StatsBar() {
 
     const animate = (now: number) => {
       const progress = Math.min((now - start) / duration, 1);
-      const easeOut = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const easeOut = 1 - Math.pow(1 - progress, 3);
 
       setCounts(stats.map(s => Math.floor(s.value * easeOut)));
 
@@ -49,15 +49,15 @@ export default function StatsBar() {
   return (
     <div 
       ref={containerRef}
-      className="bg-card border-y border-border py-12 md:py-16"
+      className="bg-card border-y border-border py-10 md:py-16"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-0">
         {stats.map((stat, i) => (
-          <div key={i} className={`flex flex-col items-center text-center ${i < stats.length - 1 ? 'md:border-r border-primary/20' : ''}`}>
-            <div className="font-headline text-5xl md:text-7xl text-primary mb-2">
+          <div key={i} className={`flex flex-col items-center text-center ${i % 2 === 0 ? 'border-r md:border-r-0' : ''} md:border-r border-primary/20 last:border-r-0`}>
+            <div className="font-headline text-4xl md:text-7xl text-primary mb-1 md:mb-2">
               {stat.display ? stat.display : `${counts[i]}${stat.suffix}`}
             </div>
-            <div className="font-body text-[11px] text-muted uppercase tracking-[0.2em]">
+            <div className="font-body text-[9px] md:text-[11px] text-muted uppercase tracking-[0.2em]">
               {stat.label}
             </div>
           </div>

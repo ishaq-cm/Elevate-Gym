@@ -27,7 +27,7 @@ export default function BeforeAfterSlider({ before, after, text, member }: Props
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-[400px] overflow-hidden group border border-border rounded-2xl"
+      className="relative w-full h-[320px] md:h-[400px] overflow-hidden group border border-border rounded-2xl"
       onMouseMove={onMouseMove}
       onTouchMove={onTouchMove}
     >
@@ -47,8 +47,8 @@ export default function BeforeAfterSlider({ before, after, text, member }: Props
         className="absolute top-0 bottom-0 w-0.5 bg-white z-10"
         style={{ left: `${position}%` }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 border-2 border-white rounded-full bg-background/50 flex items-center justify-center">
-          <span className="text-white text-xs">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 border-2 border-white rounded-full bg-background/50 flex items-center justify-center">
+          <span className="text-white text-[10px] md:text-xs">
             <i className="fa-solid fa-arrows-left-right"></i>
           </span>
         </div>
@@ -56,8 +56,8 @@ export default function BeforeAfterSlider({ before, after, text, member }: Props
 
       {/* Bottom Overlay */}
       <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
-        <div className="font-body italic text-[13px] text-white">{text}</div>
-        <div className="font-body text-[11px] text-muted uppercase mt-1">{member}</div>
+        <div className="font-body italic text-[11px] md:text-[13px] text-white">{text}</div>
+        <div className="font-body text-[9px] md:text-[11px] text-muted uppercase mt-1">{member}</div>
       </div>
     </div>
   );
