@@ -11,6 +11,7 @@ import Testimonials from '@/components/Testimonials';
 import AIPathStrategist from '@/components/AIPathStrategist';
 import ScheduleSection from '@/components/ScheduleSection';
 import TrainersSection from '@/components/TrainersSection';
+import GallerySection from '@/components/GallerySection';
 
 export default function Home() {
   const [activeHash, setActiveHash] = useState('#home');
@@ -269,7 +270,14 @@ export default function Home() {
           </div>
         )}
 
-        {['#programs', '#gallery', '#contact'].includes(activeHash) && (
+        {/* GALLERY PAGE */}
+        {activeHash === '#gallery' && (
+          <div id="gallery" className="page-section">
+            <GallerySection />
+          </div>
+        )}
+
+        {['#programs', '#contact'].includes(activeHash) && (
           <div className="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center px-6 text-center">
             <h1 className="font-headline text-5xl md:text-6xl text-white mb-4">{activeHash.slice(1).toUpperCase()}</h1>
             <p className="font-body text-xs md:text-muted uppercase tracking-[0.2em] mb-12">This section is being forged.</p>
