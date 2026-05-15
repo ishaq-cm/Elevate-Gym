@@ -28,7 +28,7 @@ export default function AIPathStrategist() {
   };
 
   return (
-    <div className="bg-card border border-border p-8 md:p-12 max-w-4xl mx-auto">
+    <div className="bg-card border border-border p-8 md:p-12 max-w-4xl mx-auto rounded-3xl">
       {!result ? (
         <>
           <span className="text-[11px] text-primary uppercase tracking-[0.4em] font-body">GenAI Tool</span>
@@ -40,7 +40,7 @@ export default function AIPathStrategist() {
                 value={goals} 
                 onChange={(e) => setGoals(e.target.value)}
                 placeholder="e.g. lose 10kg, build muscle, marathon prep..."
-                className="bg-background border-border text-white h-12"
+                className="bg-background border-border text-white h-12 rounded-lg"
               />
             </div>
             <div>
@@ -50,7 +50,7 @@ export default function AIPathStrategist() {
                   <button
                     key={l}
                     onClick={() => setLevel(l as any)}
-                    className={`h-12 border ${level === l ? 'bg-primary border-primary text-white' : 'border-border text-muted hover:border-primary/50'}`}
+                    className={`h-12 border rounded-lg transition-all ${level === l ? 'bg-primary border-primary text-white' : 'border-border text-muted hover:border-primary/50'}`}
                   >
                     {l}
                   </button>
@@ -60,7 +60,7 @@ export default function AIPathStrategist() {
             <Button 
               onClick={handleGenerate}
               disabled={loading || !goals}
-              className="bg-primary hover:bg-red-dark text-white font-headline text-xl h-14 mt-4"
+              className="bg-primary hover:bg-red-dark text-white font-headline text-xl h-14 mt-4 rounded-xl"
             >
               {loading ? <i className="fa-solid fa-spinner animate-spin" /> : 'GENERATE MY PATH'}
             </Button>
@@ -70,16 +70,16 @@ export default function AIPathStrategist() {
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="font-headline text-3xl mb-4 text-primary">Your Recommended Program</h3>
-            <div className="bg-background p-6 border border-border">
+            <div className="bg-background p-6 border border-border rounded-2xl">
               <div className="font-headline text-2xl text-white mb-2">{result.recommendedProgram.name}</div>
               <p className="font-body text-sm text-muted mb-4">{result.recommendedProgram.description}</p>
-              <div className="text-[10px] uppercase text-primary border border-primary px-2 inline-block">
+              <div className="text-[10px] uppercase text-primary border border-primary px-2 inline-block rounded-md">
                 Level: {result.recommendedProgram.difficulty}
               </div>
             </div>
 
             <h3 className="font-headline text-3xl mt-8 mb-4 text-primary">Recommended Coach</h3>
-            <div className="bg-background p-6 border border-border">
+            <div className="bg-background p-6 border border-border rounded-2xl">
               <div className="font-headline text-2xl text-white mb-2">{result.recommendedCoach.name}</div>
               <div className="text-[11px] text-primary uppercase mb-2">{result.recommendedCoach.specialization}</div>
               <p className="font-body text-sm text-muted italic">"{result.recommendedCoach.bioSnippet}"</p>
@@ -89,7 +89,7 @@ export default function AIPathStrategist() {
             <h3 className="font-headline text-3xl mb-4 text-primary">Sample Schedule</h3>
             <div className="space-y-4">
               {result.sampleWeeklySchedule.map((session, i) => (
-                <div key={i} className="bg-background p-4 border-l-4 border-primary">
+                <div key={i} className="bg-background p-4 border-l-4 border-primary rounded-r-xl rounded-l-md">
                   <div className="flex justify-between items-start mb-1">
                     <span className="font-headline text-xl text-white">{session.class}</span>
                     <span className="text-[10px] text-muted uppercase">{session.day}</span>
@@ -101,7 +101,7 @@ export default function AIPathStrategist() {
                 </div>
               ))}
             </div>
-            <Button onClick={() => setResult(null)} className="w-full mt-8 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white transition-all">
+            <Button onClick={() => setResult(null)} className="w-full mt-8 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white transition-all rounded-xl">
               START OVER
             </Button>
           </div>

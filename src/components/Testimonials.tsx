@@ -23,7 +23,7 @@ export default function Testimonials() {
           {allReviews.map((review, i) => (
             <div 
               key={i} 
-              className="w-[320px] shrink-0 bg-card border border-border p-8 flex flex-col justify-between"
+              className="w-[320px] shrink-0 bg-card border border-border p-8 flex flex-col justify-between rounded-2xl"
             >
               <div>
                 <div className="text-yellow-500 text-sm mb-4">
@@ -37,7 +37,7 @@ export default function Testimonials() {
               </div>
               <div className="mt-8">
                 <div className="font-body text-[11px] text-muted uppercase tracking-wider">{review.name}</div>
-                <div className="font-body text-[10px] text-primary uppercase mt-1 px-2 border border-primary/30 inline-block">{review.program}</div>
+                <div className="font-body text-[10px] text-primary uppercase mt-1 px-2 border border-primary/30 inline-block rounded-md">{review.program}</div>
               </div>
             </div>
           ))}

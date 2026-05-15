@@ -34,14 +34,13 @@
     --border: var(--border);
     --input: var(--bg-card);
     --ring: var(--red);
-    --radius: 0px;
+    --radius: 0.75rem;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    border-radius: 0 !important;
     cursor: none;
   }
   

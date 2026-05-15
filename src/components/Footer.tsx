@@ -18,7 +18,7 @@ export default function Footer() {
           <a href="tel:+919165349085" className="text-primary font-body text-sm hover:underline block mb-6">+91 9165349085</a>
           <div className="flex gap-4">
             {['instagram', 'facebook-f', 'youtube', 'twitter'].map((icon) => (
-              <a key={icon} href="#" className="w-9 h-9 border border-muted text-muted flex items-center justify-center hover:border-primary hover:text-primary transition-all">
+              <a key={icon} href="#" className="w-9 h-9 border border-muted text-muted flex items-center justify-center hover:border-primary hover:text-primary transition-all rounded-lg">
                 <i className={`fa-brands fa-${icon}`}></i>
               </a>
             ))}
@@ -59,9 +59,9 @@ export default function Footer() {
             <input 
               type="email" 
               placeholder="Email Address"
-              className="bg-background border border-border px-4 py-2 w-full text-xs outline-none focus:border-primary"
+              className="bg-background border border-border px-4 py-2 w-full text-xs outline-none focus:border-primary rounded-l-lg"
             />
-            <button className="bg-primary px-4 hover:bg-red-dark transition-all">
+            <button className="bg-primary px-4 hover:bg-red-dark transition-all rounded-r-lg">
               <i className="fa-solid fa-arrow-right text-white"></i>
             </button>
           </div>

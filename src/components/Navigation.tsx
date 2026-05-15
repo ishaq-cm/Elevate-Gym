@@ -55,7 +55,7 @@ export default function Navigation({ activeHash }: { activeHash: string }) {
         <div className="flex items-center gap-6">
           <a
             href="#pricing"
-            className="hidden sm:block bg-primary text-white text-[11px] uppercase tracking-[0.25em] px-6 py-2.5 hover:bg-red-dark transition-all transform hover:scale-105"
+            className="hidden sm:block bg-primary text-white text-[11px] uppercase tracking-[0.25em] px-6 py-2.5 hover:bg-red-dark transition-all transform hover:scale-105 rounded-lg"
           >
             Join Now
           </a>

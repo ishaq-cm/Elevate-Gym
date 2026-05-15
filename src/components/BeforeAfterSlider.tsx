@@ -27,7 +27,7 @@ export default function BeforeAfterSlider({ before, after, text, member }: Props
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-[400px] overflow-hidden group border border-border"
+      className="relative w-full h-[400px] overflow-hidden group border border-border rounded-2xl"
       onMouseMove={onMouseMove}
       onTouchMove={onTouchMove}
     >

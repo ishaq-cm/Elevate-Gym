@@ -78,18 +78,18 @@ export default function Home() {
                 <div className="w-20 h-[2px] bg-primary mx-auto my-8" />
                 <p className="text-[13px] text-muted uppercase tracking-[0.25em] font-body mb-10">Train harder. Push further. Elevate everything.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="#pricing" className="bg-primary text-white text-[11px] uppercase tracking-[0.3em] px-10 py-4 hover:bg-red-dark transition-all transform hover:scale-105">Start Free Trial</a>
-                  <a href="#programs" className="border border-white text-white text-[11px] uppercase tracking-[0.3em] px-10 py-4 hover:border-primary hover:text-primary transition-all">Explore Programs</a>
+                  <a href="#pricing" className="bg-primary text-white text-[11px] uppercase tracking-[0.3em] px-10 py-4 rounded-lg hover:bg-red-dark transition-all transform hover:scale-105">Start Free Trial</a>
+                  <a href="#programs" className="border border-white text-white text-[11px] uppercase tracking-[0.3em] px-10 py-4 rounded-lg hover:border-primary hover:text-primary transition-all">Explore Programs</a>
                 </div>
               </div>
 
               {/* Float Cards */}
-              <div className="absolute bottom-12 left-6 md:left-12 bg-black/60 border border-border p-4 md:p-5 backdrop-blur-md hidden sm:block">
+              <div className="absolute bottom-12 left-6 md:left-12 bg-black/60 border border-border p-4 md:p-5 backdrop-blur-md hidden sm:block rounded-xl">
                 <i className="fa-solid fa-users text-primary text-xl mb-2 block"></i>
                 <div className="font-headline text-3xl text-white">2,400+</div>
                 <div className="font-body text-[10px] text-muted uppercase tracking-widest">Active Members</div>
               </div>
-              <div className="absolute bottom-12 right-6 md:right-12 bg-black/60 border border-border p-4 md:p-5 backdrop-blur-md hidden sm:block">
+              <div className="absolute bottom-12 right-6 md:right-12 bg-black/60 border border-border p-4 md:p-5 backdrop-blur-md hidden sm:block rounded-xl">
                 <i className="fa-solid fa-star text-yellow-500 text-xl mb-2 block"></i>
                 <div className="font-headline text-3xl text-white">4.9★</div>
                 <div className="font-body text-[10px] text-muted uppercase tracking-widest">Google Rating</div>
@@ -122,7 +122,7 @@ export default function Home() {
                     { id: 'mma', name: 'MMA & Boxing', icon: 'hand-fist', level: 'Intermediate', img: 'https://images.unsplash.com/photo-1549476464-37392f717541?w=600&q=80', desc: 'Combat conditioning meets elite technique. Train like a fighter, move like an athlete.' },
                     { id: 'zumba', name: 'Zumba & Dance Fitness', icon: 'music', level: 'Beginner', img: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80', desc: 'High-energy dance workouts that don\'t feel like exercise — until the next morning.' }
                   ].map((p, i) => (
-                    <div key={p.id} className="reveal group bg-card border border-border transition-all hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_8px_32px_rgba(224,43,43,0.15)]">
+                    <div key={p.id} className="reveal group bg-card border border-border transition-all hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_8px_32px_rgba(224,43,43,0.15)] rounded-2xl overflow-hidden">
                       <div className="h-52 w-full overflow-hidden">
                         <img src={p.img} alt={p.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                       </div>
@@ -155,9 +155,9 @@ export default function Home() {
                   <p className="font-body text-sm text-muted uppercase tracking-widest mt-2">Our members speak through their results.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
-                  <div className="reveal"><BeforeAfterSlider before="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" after="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" text="— 22kg lost · 6 months" member="Arjun M." /></div>
-                  <div className="reveal" style={{ transitionDelay: '0.1s' }}><BeforeAfterSlider before="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" after="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=80" text="— Gained 8kg muscle · 5 months" member="Sneha R." /></div>
-                  <div className="reveal" style={{ transitionDelay: '0.2s' }}><BeforeAfterSlider before="https://images.unsplash.com/photo-1549476464-37392f717541?w=400&q=80" after="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80" text="— Lost 15kg · 3 months" member="Rahul T." /></div>
+                  <div className="reveal overflow-hidden rounded-2xl"><BeforeAfterSlider before="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" after="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" text="— 22kg lost · 6 months" member="Arjun M." /></div>
+                  <div className="reveal overflow-hidden rounded-2xl" style={{ transitionDelay: '0.1s' }}><BeforeAfterSlider before="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" after="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=80" text="— Gained 8kg muscle · 5 months" member="Sneha R." /></div>
+                  <div className="reveal overflow-hidden rounded-2xl" style={{ transitionDelay: '0.2s' }}><BeforeAfterSlider before="https://images.unsplash.com/photo-1549476464-37392f717541?w=400&q=80" after="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80" text="— Lost 15kg · 3 months" member="Rahul T." /></div>
                 </div>
               </div>
             </section>
@@ -183,7 +183,7 @@ export default function Home() {
                     { icon: 'clock', title: 'Open 24 Hours, 7 Days', desc: 'Train at 3am or 3pm — Elevate never closes. Smart-card access for all members, all hours.' },
                     { icon: 'chart-line', title: 'Proven Results System', desc: 'Monthly body composition scans, progress tracking app, and quarterly goal reviews with your trainer.' }
                   ].map((f, i) => (
-                    <div key={i} className="reveal group bg-card border-l-[3px] border-primary p-12 border border-border hover:bg-primary/5 transition-all">
+                    <div key={i} className="reveal group bg-card border-l-[3px] border-primary p-12 border border-border hover:bg-primary/5 transition-all rounded-2xl">
                       <div className="flex gap-8">
                         <i className={`fa-solid fa-${f.icon} text-primary text-4xl`}></i>
                         <div>
@@ -203,7 +203,7 @@ export default function Home() {
                <div className="relative z-10 max-w-4xl mx-auto text-center">
                   <h2 className="font-headline text-6xl md:text-8xl text-white mb-6">Ready To Elevate?</h2>
                   <p className="font-body text-sm md:text-base text-white/80 uppercase tracking-widest mb-10">First 7 days free. No commitment. Cancel anytime.</p>
-                  <a href="#contact" className="bg-white text-primary font-headline text-2xl px-12 py-5 hover:bg-white/90 transition-all transform hover:scale-105 inline-block">Claim Free Trial</a>
+                  <a href="#contact" className="bg-white text-primary font-headline text-2xl px-12 py-5 rounded-lg hover:bg-white/90 transition-all transform hover:scale-105 inline-block">Claim Free Trial</a>
                </div>
             </section>
           </div>
@@ -229,8 +229,8 @@ export default function Home() {
                  {/* Prices & Toggle would go here - simplified for proposal length */}
                  <div className="grid md:grid-cols-3 gap-8">
                     {['BASIC', 'PRO', 'ELITE'].map((plan, i) => (
-                      <div key={plan} className={`relative bg-card p-10 border border-border flex flex-col h-full ${i === 1 ? 'border-primary md:-translate-y-4 shadow-[0_12px_40px_rgba(224,43,43,0.15)]' : ''}`}>
-                        {i === 1 && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-body tracking-[0.2em] px-4 py-1 uppercase">Most Popular</div>}
+                      <div key={plan} className={`relative bg-card p-10 border border-border flex flex-col h-full rounded-2xl ${i === 1 ? 'border-primary md:-translate-y-4 shadow-[0_12px_40px_rgba(224,43,43,0.15)]' : ''}`}>
+                        {i === 1 && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-body tracking-[0.2em] px-4 py-1 uppercase rounded-full">Most Popular</div>}
                         <h3 className="font-headline text-4xl text-white mb-4">{plan}</h3>
                         <div className="flex items-end gap-2 mb-8">
                           <span className="font-headline text-6xl text-primary">₹{plan === 'BASIC' ? '1,499' : plan === 'PRO' ? '2,499' : '3,999'}</span>
@@ -245,7 +245,7 @@ export default function Home() {
                              </li>
                            ))}
                         </ul>
-                        <a href="#contact" className={`w-full text-center py-4 font-body text-[11px] uppercase tracking-[0.2em] transition-all ${i === 1 ? 'bg-primary text-white hover:bg-red-dark' : i === 2 ? 'bg-white text-black hover:bg-white/90' : 'border border-primary text-primary hover:bg-primary hover:text-white'}`}>
+                        <a href="#contact" className={`w-full text-center py-4 font-body text-[11px] uppercase tracking-[0.2em] transition-all rounded-lg ${i === 1 ? 'bg-primary text-white hover:bg-red-dark' : i === 2 ? 'bg-white text-black hover:bg-white/90' : 'border border-primary text-primary hover:bg-primary hover:text-white'}`}>
                           {plan === 'ELITE' ? 'Go Elite' : 'Join Now'}
                         </a>
                       </div>
@@ -262,13 +262,13 @@ export default function Home() {
             <h1 className="font-headline text-6xl text-white mb-4">{activeHash.slice(1).toUpperCase()}</h1>
             <p className="font-body text-muted uppercase tracking-[0.2em] mb-12">This section is being forged.</p>
             {activeHash === '#contact' && (
-              <div className="max-w-2xl w-full bg-card border border-border p-12 text-left">
+              <div className="max-w-2xl w-full bg-card border border-border p-12 text-left rounded-2xl">
                 <h2 className="font-headline text-3xl text-white mb-8">Send a Message</h2>
                 <div className="grid gap-6">
-                  <input type="text" placeholder="Full Name" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary" />
-                  <input type="email" placeholder="Email Address" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary" />
-                  <textarea placeholder="Your Message" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary h-32" />
-                  <button onClick={() => alert('Message Received!')} className="bg-primary text-white py-4 font-headline text-xl hover:bg-red-dark transition-all">Send Message</button>
+                  <input type="text" placeholder="Full Name" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary rounded-lg" />
+                  <input type="email" placeholder="Email Address" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary rounded-lg" />
+                  <textarea placeholder="Your Message" className="bg-background border border-border p-4 text-xs outline-none focus:border-primary h-32 rounded-lg" />
+                  <button onClick={() => alert('Message Received!')} className="bg-primary text-white py-4 font-headline text-xl rounded-lg hover:bg-red-dark transition-all">Send Message</button>
                 </div>
               </div>
             )}
@@ -288,7 +288,7 @@ export default function Home() {
       <a 
         href="https://wa.me/919165349085" 
         target="_blank"
-        className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] text-white flex items-center justify-center text-2xl z-[998] hover:scale-110 transition-all shadow-[0_0_0_0_rgba(37,211,102,0.4)] hover:shadow-[0_0_0_12px_rgba(37,211,102,0)]"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] text-white flex items-center justify-center text-2xl z-[998] rounded-full hover:scale-110 transition-all shadow-[0_0_0_0_rgba(37,211,102,0.4)] hover:shadow-[0_0_0_12px_rgba(37,211,102,0)]"
       >
         <i className="fa-brands fa-whatsapp"></i>
       </a>
