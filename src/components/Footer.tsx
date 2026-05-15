@@ -70,7 +70,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto border-t border-border py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div className="text-[10px] md:text-[11px] text-muted tracking-widest uppercase order-2 md:order-1">
-          © 2025 ELEVATE GYM. ALL RIGHTS RESERVED.
+          © 2026 ELEVATE GYM. ALL RIGHTS RESERVED.
         </div>
         <div className="font-headline text-primary text-xl md:text-2xl order-1 md:order-2">
           FORGE YOUR BEST SELF
