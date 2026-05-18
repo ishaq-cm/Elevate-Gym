@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -9,6 +10,7 @@ const links = [
   { name: 'Schedule', hash: '#schedule', sub: 'Class Times' },
   { name: 'Pricing', hash: '#pricing', sub: 'Get Started' },
   { name: 'Gallery', hash: '#gallery', sub: 'See Results' },
+  { name: 'Blog', hash: '#blog', sub: 'Expert Tips' },
   { name: 'Contact', hash: '#contact', sub: 'Reach Us' },
 ];
 
