@@ -1,4 +1,4 @@
-import { createClient } from "@/sanity/lib/client";
+import { createClient } from "next-sanity";
 
 export const client = createClient({
   projectId: "3l5aifnv",
