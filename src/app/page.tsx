@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -12,6 +13,7 @@ import AIPathStrategist from '@/components/AIPathStrategist';
 import ScheduleSection from '@/components/ScheduleSection';
 import TrainersSection from '@/components/TrainersSection';
 import GallerySection from '@/components/GallerySection';
+import BlogSection from '@/components/BlogSection';
 
 export default function Home() {
   const [activeHash, setActiveHash] = useState('#home');
@@ -274,6 +276,13 @@ export default function Home() {
         {activeHash === '#gallery' && (
           <div id="gallery" className="page-section">
             <GallerySection />
+          </div>
+        )}
+
+        {/* BLOG PAGE */}
+        {activeHash === '#blog' && (
+          <div id="blog" className="page-section">
+            <BlogSection />
           </div>
         )}
 

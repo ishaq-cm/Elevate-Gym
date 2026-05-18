@@ -1,3 +1,4 @@
+
 'use client';
 
 export default function Footer() {
@@ -29,7 +30,7 @@ export default function Footer() {
         <div className="hidden sm:block">
           <h4 className="font-headline text-lg tracking-[0.3em] text-white mb-8">Explore</h4>
           <ul className="grid gap-3">
-            {['Home', 'Programs', 'Trainers', 'Schedule', 'Pricing', 'Gallery', 'Contact'].map((item) => (
+            {['Home', 'Programs', 'Trainers', 'Schedule', 'Pricing', 'Gallery', 'Blog', 'Contact'].map((item) => (
               <li key={item}>
                 <a href={`#${item.toLowerCase()}`} className="text-xs text-muted hover:text-white transition-all flex items-center group">
                   {item} <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all ml-1">→</span>

@@ -83,6 +83,24 @@
       "description": "Coach Neha",
       "imageUrl": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80",
       "imageHint": "female trainer"
+    },
+    {
+      "id": "blog-1",
+      "description": "Blog post 1 - Compound Lifts",
+      "imageUrl": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
+      "imageHint": "weightlifting gym"
+    },
+    {
+      "id": "blog-2",
+      "description": "Blog post 2 - Cardio Tips",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+      "imageHint": "running cardio"
+    },
+    {
+      "id": "blog-3",
+      "description": "Blog post 3 - Mental Fortitude",
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+      "imageHint": "fitness focus"
     }
   ]
 }
