@@ -280,21 +280,10 @@ export default function Home() {
 
         {/* BLOG PAGE */}
 {activeHash === '#blog' && (
-  <div
-    id="blog"
-    className="page-section min-h-screen flex flex-col items-center justify-center"
-  >
-    <h1 className="text-5xl font-bold mb-6">
-      Our Blog
-    </h1>
-
-    <a
-      href="/blog"
-      className="px-6 py-3 rounded-lg bg-red-600 text-white"
-    >
-      Open Blog
-    </a>
-  </div>
+  <iframe
+    src="/blog"
+    className="w-full min-h-screen border-0"
+  />
 )}
 
         {['#programs', '#contact'].includes(activeHash) && (
