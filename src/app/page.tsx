@@ -13,7 +13,6 @@ import AIPathStrategist from '@/components/AIPathStrategist';
 import ScheduleSection from '@/components/ScheduleSection';
 import TrainersSection from '@/components/TrainersSection';
 import GallerySection from '@/components/GallerySection';
-import BlogSection from '@/components/BlogSection';
 
 export default function Home() {
   const [activeHash, setActiveHash] = useState('#home');
@@ -280,11 +279,23 @@ export default function Home() {
         )}
 
         {/* BLOG PAGE */}
-        {activeHash === '#blog' && (
-          <div id="blog" className="page-section">
-            <BlogSection />
-          </div>
-        )}
+{activeHash === '#blog' && (
+  <div
+    id="blog"
+    className="page-section min-h-screen flex flex-col items-center justify-center"
+  >
+    <h1 className="text-5xl font-bold mb-6">
+      Our Blog
+    </h1>
+
+    <a
+      href="/blog"
+      className="px-6 py-3 rounded-lg bg-red-600 text-white"
+    >
+      Open Blog
+    </a>
+  </div>
+)}
 
         {['#programs', '#contact'].includes(activeHash) && (
           <div className="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center px-6 text-center">
