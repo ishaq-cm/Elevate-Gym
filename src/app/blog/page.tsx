@@ -7,9 +7,9 @@ export default async function BlogPage() {
     slug,
     excerpt,
     mainImage,
-    author
+    author,
     _createdAt,
-    "mainImage": mainImage.asset.>url
+    "mainImage": mainImage.asset.->url
   }`);
 
   if (!posts || posts.length === 0) {
