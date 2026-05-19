@@ -1,3 +1,4 @@
+import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 
 export default async function BlogPost({
@@ -6,7 +7,14 @@ export default async function BlogPost({
   params: { slug: string };
 }) {
   const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0]`,
+    `*[_type=="post" && slug.current==$slug][0]{
+      title,
+      author,
+      publishedAt,
+      body,
+      tags,
+      "mainImage": mainImage.asset->url
+    }`,
     {
       slug: params.slug,
     }
@@ -30,7 +38,9 @@ export default async function BlogPost({
         />
       )}
 
-      <div className="prose max-w-none">{post.body}</div>
+      <div className="prose max-w-none">
+        <PortableText value={post.body} />
+      </div>
 
       {post.tags && (
         <div className="mt-8 flex gap-2">
