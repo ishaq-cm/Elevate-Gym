@@ -5,5 +5,5 @@ export const client = createClient({
   dataset: "production",
   apiVersion: "2023-05-03",
   useCdn: true,
-  token: process.env.SANITY_API_TOKEN,
+  perspective: "published",
 });
