@@ -1,8 +1,8 @@
-// src/app/blog/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface BlogPost {
   id: { $t: string };
@@ -19,7 +19,6 @@ export default function BlogPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Apni API se fetch karo, direct Blogger se nahi
     fetch('/api/blog')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch');
@@ -60,21 +59,12 @@ export default function BlogPage() {
         {error && (
           <div className="text-center py-12">
             <div className="text-red-400 mb-2">Error: {error}</div>
-            <button 
-              onClick={() => window.location.reload()}
-              className="text-blue-400 hover:underline"
-            >
-              Retry
-            </button>
           </div>
         )}
 
         {!loading && !error && posts.length === 0 && (
           <div className="text-center py-12">
             <div className="text-gray-400 text-xl">No posts found</div>
-            <div className="text-gray-500 mt-2">
-              Make sure your blog has published posts
-            </div>
           </div>
         )}
 
@@ -82,8 +72,8 @@ export default function BlogPage() {
           {posts.map((post, index) => {
             const postLink = post.link?.find(l => l.rel === 'alternate')?.href;
             const thumbnail = post.media$thumbnail?.url?.replace('s72-c', 's400');
+            const slug = postLink?.split('/').pop()?.replace('.html', '') || '';
             
-            // HTML se text extract
             const summary = post.content?.$t
               ?.replace(/<[^>]*>/g, ' ')
               ?.substring(0, 150) + '...' || '';
@@ -119,14 +109,13 @@ export default function BlogPage() {
                     {summary}
                   </p>
                   
-                  <a 
-                    href={postLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  {/* ✅ YEH LINK CHANGE KIYA HAI */}
+                  <Link 
+                    href={`/blog/${slug}`}
                     className="text-red-500 hover:text-red-400 transition-colors inline-flex items-center gap-1 text-sm font-medium"
                   >
                     Read Full Post →
-                  </a>
+                  </Link>
                 </div>
               </motion.article>
             );
