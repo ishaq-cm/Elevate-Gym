@@ -13,10 +13,15 @@ interface BlogPost {
   media$thumbnail?: { url: string };
 }
 
+// ✅ ORIGINAL IMAGE URL — s72-c/s400 hatao
+function getOriginalImage(url: string): string {
+  return url.replace(/\/s\d+-c\//, '/').replace(/\/s\d+\//, '/');
+}
+
 // ✅ CONTENT SE ORIGINAL IMAGE NIKALO
 function extractFirstImage(content: string): string | null {
   const match = content.match(/<img[^>]+src="([^"]+)"/);
-  return match ? match[1] : null;
+  return match ? getOriginalImage(match[1]) : null;
 }
 
 export default function BlogPage() {
@@ -76,9 +81,11 @@ export default function BlogPage() {
             const postLink = post.link?.find(l => l.rel === 'alternate')?.href;
             const slug = postLink?.split('/').pop()?.replace('.html', '') || '';
             
-            // ✅ ORIGINAL IMAGE CONTENT SE (blur nahi hogi)
-            const thumbnail = extractFirstImage(post.content?.$t || '') 
-              || post.media$thumbnail?.url; // Fallback
+            // ✅ ORIGINAL QUALITY IMAGE
+            const rawThumbnail = extractFirstImage(post.content?.$t || '') 
+              || post.media$thumbnail?.url;
+            
+            const thumbnail = rawThumbnail ? getOriginalImage(rawThumbnail) : null;
             
             const summary = post.content?.$t
               ?.replace(/<[^>]*>/g, ' ')
