@@ -13,6 +13,12 @@ interface BlogPost {
   media$thumbnail?: { url: string };
 }
 
+// ✅ CONTENT SE ORIGINAL IMAGE NIKALO
+function extractFirstImage(content: string): string | null {
+  const match = content.match(/<img[^>]+src="([^"]+)"/);
+  return match ? match[1] : null;
+}
+
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,6 +42,22 @@ export default function BlogPage() {
       });
   }, []);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white">Loading posts...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black text-white p-12">
+        <div className="text-red-400">Error: {error}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="max-w-5xl mx-auto px-6 py-12">
@@ -49,30 +71,14 @@ export default function BlogPage() {
           <p className="text-gray-400">Latest posts from Blogger</p>
         </motion.div>
 
-        {loading && (
-          <div className="text-center py-12">
-            <div className="animate-spin w-8 h-8 border-2 border-red-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-            <div className="text-gray-400">Loading posts...</div>
-          </div>
-        )}
-
-        {error && (
-          <div className="text-center py-12">
-            <div className="text-red-400 mb-2">Error: {error}</div>
-          </div>
-        )}
-
-        {!loading && !error && posts.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 text-xl">No posts found</div>
-          </div>
-        )}
-
         <div className="grid gap-6 md:grid-cols-2">
           {posts.map((post, index) => {
             const postLink = post.link?.find(l => l.rel === 'alternate')?.href;
-            const thumbnail = post.media$thumbnail?.url?.replace('s72-c', 's400');
             const slug = postLink?.split('/').pop()?.replace('.html', '') || '';
+            
+            // ✅ ORIGINAL IMAGE CONTENT SE (blur nahi hogi)
+            const thumbnail = extractFirstImage(post.content?.$t || '') 
+              || post.media$thumbnail?.url; // Fallback
             
             const summary = post.content?.$t
               ?.replace(/<[^>]*>/g, ' ')
@@ -86,11 +92,13 @@ export default function BlogPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden hover:border-red-500 transition-all"
               >
+                {/* ✅ ORIGINAL QUALITY IMAGE */}
                 {thumbnail && (
                   <img 
                     src={thumbnail} 
                     alt={post.title?.$t}
                     className="w-full h-48 object-cover"
+                    loading="lazy"
                   />
                 )}
                 
@@ -109,7 +117,6 @@ export default function BlogPage() {
                     {summary}
                   </p>
                   
-                  {/* ✅ YEH LINK CHANGE KIYA HAI */}
                   <Link 
                     href={`/blog/${slug}`}
                     className="text-red-500 hover:text-red-400 transition-colors inline-flex items-center gap-1 text-sm font-medium"
