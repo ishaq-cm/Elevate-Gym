@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Blogger ka URL yahan daalo
-const BLOG_URL = 'https://mera-tech-blog.blogspot.com';
+const BLOG_URL = 'https://mera-techh-blog.blogspot.com/2026/06/hello-bhai-kiya-haal-h.html';
 
 interface BlogPost {
   id: { $t: string };
