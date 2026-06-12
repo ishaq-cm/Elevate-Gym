@@ -44,13 +44,14 @@ export default function BlogPost() {
     );
   }
 
-  const thumbnail = post.media$thumbnail?.url?.replace('s72-c', 's800');
+  // Pehli image hatao — duplicate featured image
+  let content = post.content?.$t || '';
+  content = content.replace(/<img[^>]*>/i, '');
 
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="max-w-3xl mx-auto px-6 py-12">
         
-        {/* Back Link */}
         <Link 
           href="/blog" 
           className="text-red-500 hover:underline mb-8 inline-block"
@@ -62,31 +63,19 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          {/* Title */}
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {post.title?.$t}
           </h1>
 
-          {/* Date */}
           <p className="text-gray-400 mb-8">
             {new Date(post.published?.$t).toLocaleDateString('en-US', {
               year: 'numeric', month: 'long', day: 'numeric'
             })}
           </p>
 
-          {/* Featured Image */}
-          {thumbnail && (
-            <img 
-              src={thumbnail} 
-              alt={post.title?.$t}
-              className="w-full rounded-xl mb-8"
-            />
-          )}
-
-          {/* Full Content */}
           <div 
             className="prose prose-invert max-w-none text-gray-300 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: post.content?.$t }}
+            dangerouslySetInnerHTML={{ __html: content }}
           />
         </motion.article>
       </div>
