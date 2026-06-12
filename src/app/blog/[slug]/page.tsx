@@ -44,9 +44,12 @@ export default function BlogPost() {
     );
   }
 
-  // Pehli image hatao — duplicate featured image
+  // ✅ FEATURED IMAGE ALAG SE NIKALO
+  const featuredImage = post.media$thumbnail?.url?.replace('s72-c', 's800');
+  
+  // ✅ CONTENT MEIN SE PEHLI IMAGE HATAO
   let content = post.content?.$t || '';
-  content = content.replace(/<img[^>]*>/i, '');
+  content = content.replace(/<img[^>]*>/i, ''); // Pehli image hatao
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -67,12 +70,22 @@ export default function BlogPost() {
             {post.title?.$t}
           </h1>
 
-          <p className="text-gray-400 mb-8">
+          <p className="text-gray-400 mb-6">
             {new Date(post.published?.$t).toLocaleDateString('en-US', {
               year: 'numeric', month: 'long', day: 'numeric'
             })}
           </p>
 
+          {/* ✅ FEATURED IMAGE ALAG SE DIKHAO */}
+          {featuredImage && (
+            <img 
+              src={featuredImage} 
+              alt={post.title?.$t}
+              className="w-full rounded-xl mb-8 object-cover"
+            />
+          )}
+
+          {/* ✅ CONTENT MEIN SE PEHLI IMAGE HATA DIYA */}
           <div 
             className="prose prose-invert max-w-none text-gray-300 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: content }}
