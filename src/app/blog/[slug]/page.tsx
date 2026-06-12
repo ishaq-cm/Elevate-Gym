@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -14,43 +15,78 @@ export default function BlogPost() {
       .then(res => res.json())
       .then(data => {
         const posts = data.feed?.entry || [];
-        // Post find karo by URL match
-        const found = posts.find((p: any) => 
-          p.link.find((l: any) => l.rel === 'alternate')?.href.includes(slug)
-        );
+        const found = posts.find((p: any) => {
+          const postUrl = p.link?.find((l: any) => l.rel === 'alternate')?.href;
+          return postUrl?.includes(slug);
+        });
         setPost(found);
         setLoading(false);
-      });
+      })
+      .catch(() => setLoading(false));
   }, [slug]);
 
-  if (loading) return <div className="text-white p-12">Loading...</div>;
-  if (!post) return <div className="text-white p-12">Post not found</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white">Loading post...</div>
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="min-h-screen bg-black text-white p-12">
+        <h1 className="text-2xl mb-4">Post not found</h1>
+        <Link href="/blog" className="text-red-500 hover:underline">
+          ← Back to Blog
+        </Link>
+      </div>
+    );
+  }
+
+  const thumbnail = post.media$thumbnail?.url?.replace('s72-c', 's800');
 
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="max-w-3xl mx-auto px-6 py-12">
+        
+        {/* Back Link */}
+        <Link 
+          href="/blog" 
+          className="text-red-500 hover:underline mb-8 inline-block"
+        >
+          ← Back to Blog
+        </Link>
+
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-3xl font-bold mb-4">{post.title.$t}</h1>
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            {post.title?.$t}
+          </h1>
+
+          {/* Date */}
           <p className="text-gray-400 mb-8">
-            {new Date(post.published.$t).toLocaleDateString()}
+            {new Date(post.published?.$t).toLocaleDateString('en-US', {
+              year: 'numeric', month: 'long', day: 'numeric'
+            })}
           </p>
-          
+
           {/* Featured Image */}
-          {post.media$thumbnail?.url && (
+          {thumbnail && (
             <img 
-              src={post.media$thumbnail.url.replace('s72-c', 's800')} 
-              alt={post.title.$t}
+              src={thumbnail} 
+              alt={post.title?.$t}
               className="w-full rounded-xl mb-8"
             />
           )}
-          
+
           {/* Full Content */}
           <div 
-            className="prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content.$t }}
+            className="prose prose-invert max-w-none text-gray-300 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: post.content?.$t }}
           />
         </motion.article>
       </div>
