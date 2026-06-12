@@ -1,7 +1,6 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -25,6 +24,19 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+      // ✅ BLOGGER IMAGES KE LIYE ADD KARO
+      {
+        protocol: 'https',
+        hostname: '**.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.bp.blogspot.com',
         port: '',
         pathname: '/**',
       },
